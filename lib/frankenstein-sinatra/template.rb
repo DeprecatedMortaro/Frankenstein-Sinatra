@@ -42,7 +42,7 @@ module FrankensteinSinatra
     def config_ru
       code  = "require ./app\n"
       code +=  "run Sinatra::Application"
-      write dir('confir.ru'), code
+      write dir('config.ru'), code
     end
 
     def helpers_rb
