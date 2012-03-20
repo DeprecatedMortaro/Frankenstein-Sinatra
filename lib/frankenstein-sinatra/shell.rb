@@ -46,7 +46,7 @@ module FrankensteinSinatra
       system "bundle install"
     end
 
-    def self.set_up?
+    def self.set_up? *args
       IO.readlines("file.log")[-1].index "#set"
     end
 
