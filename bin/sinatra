@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'frankenstein-sinatra'
+
+FrankensteinSinatra::Shell.send ARGV.first, ARGV.last
