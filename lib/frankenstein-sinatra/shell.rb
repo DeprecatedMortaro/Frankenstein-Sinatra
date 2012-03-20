@@ -1,10 +1,10 @@
 module FrankensteinSinatra
   class Shell
-    def self.git_path
+    def self.git_path *args
       "git@heroku.com:#{project}.git"
     end
 
-    def self.project
+    def self.project *args
       %x[pwd].split('/').last.strip
     end
 
@@ -13,8 +13,8 @@ module FrankensteinSinatra
     end
 
     def self.clone *args
-      system "git clone #{git_path}"
-      system "git remote add heroku #{git_path}"
+      system "git clone #{args.first}"
+      system "cd #{args.first} && git remote add heroku #{git_path}"
     end
 
     def self.deploy *args
