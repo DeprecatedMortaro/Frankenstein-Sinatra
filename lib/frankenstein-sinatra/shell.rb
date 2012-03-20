@@ -47,7 +47,7 @@ module FrankensteinSinatra
     end
 
     def self.set_up? *args
-      IO.readlines("file.log")[-1].index "#set"
+      IO.readlines("config.ru")[-1].index "#set"
     end
 
     def self.help *args
