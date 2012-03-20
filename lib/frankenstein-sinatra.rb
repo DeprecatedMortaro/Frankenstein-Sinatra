@@ -16,5 +16,8 @@ require "frankenstein-sinatra/mail"
 require "frankenstein-sinatra/routes"
 require "frankenstein-sinatra/session"
 require "frankenstein-sinatra/template"
+require "frankenstein-sinatra/shell"
+require "frankenstein-sinatra/locales"
+require "frankenstein-sinatra/helpers"
 
 (Dir["./configs/*.rb"] + Dir["./controllers/*.rb"] + Dir["./models/*.rb"]).each {|file| load file}
