@@ -1,11 +1,12 @@
 module FrankensteinSinatra
   class Shell
     def self.git_path *args
-      "git@heroku.com:#{project}.git"
+      repo = args.first || project
+      "git@heroku.com:#{repo}.git"
     end
 
     def self.project *args
-      File.expand_path(File.dirname(__FILE__)).split('/').last.strip
+      Dir.pwd.split('/').last.strip
     end
 
     def self.new *args
@@ -13,7 +14,7 @@ module FrankensteinSinatra
     end
 
     def self.clone *args
-      system "git clone #{args.first}"
+      system "git clone #{git_path args.first}"
       system "cd #{args.first} && git remote add heroku #{git_path}"
     end
 
@@ -41,7 +42,7 @@ module FrankensteinSinatra
       system "heroku addons:add memcache"
       system "heroku addons:add custom_domains:basic"
       system "heroku addons:add zerigo_dns:basic"
-      fingerprints = "#set up via Sinatra"
+      fingerprints = "\n#set up via Sinatra"
       File.open("config.ru", 'a+') {|f| f.write(fingerprints)}
       system "bundle install"
     end

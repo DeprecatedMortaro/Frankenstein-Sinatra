@@ -1,4 +1,5 @@
 #coding: utf-8
+require 'sinatra'
 require 'digest/md5'
 require 'net/http'
 require 'cgi'
@@ -6,7 +7,6 @@ require 'json'
 require 'time'
 require 'date'
 require 'time'
-require 'sinatra'
 require 'compass'
 require 'i18n-router'
 require 'pony'

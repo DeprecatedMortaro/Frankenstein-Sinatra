@@ -30,7 +30,7 @@ module FrankensteinSinatra
     end
 
     def app_rb
-      code = "#coding: utf-8 \n"
+      code  = "#coding: utf-8 \n"
       code += "require 'sinatra'\n"
       code += "require 'frankenstein-sinatra'\n\n"
       code += "get '/' do\n"
@@ -42,7 +42,7 @@ module FrankensteinSinatra
     def config_ru
       code  = "require ./app\n"
       code +=  "run Sinatra::Application"
-      write dir('config.ru'), code
+      write dir('confir.ru'), code
     end
 
     def helpers_rb
@@ -53,7 +53,10 @@ module FrankensteinSinatra
 
     def gemfile
       code  = "source :rubygems \n"
-      code += "gem 'towsta'"
+      code += "gem 'frankenstein-sinatra'\n"
+      code += "group :production do\n"
+      code += "  gem 'therubyracer'\n"
+      code += "end"
       write dir('Gemfile'), code
     end
 
