@@ -5,7 +5,7 @@ module FrankensteinSinatra
     end
 
     def self.project *args
-      %x[pwd].split('/').last.strip
+      File.expand_path(File.dirname(__FILE__)).split('/').last.strip
     end
 
     def self.new *args
